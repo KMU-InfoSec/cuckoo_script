@@ -1,31 +1,31 @@
-#!/bin/bash
+#!/bin/sh
 
 # install python libraries (cuckoo sandbox on Ubuntu/Debian-based distributions)
-sudo apt-get install python python-pip python-dev libffi-dev libssl-dev
-sudo apt-get install python-virtualenv python-setuptools
-sudo apt-get install libjpeg-dev zlib1g-dev swig
+apt-get install python python-pip python-dev libffi-dev libssl-dev -y
+apt-get install python-virtualenv python-setuptools -y
+apt-get install libjpeg-dev zlib1g-dev swig -y
 
 # install mongodb
-sudo apt-get install mongodb
+apt-get install mongodb -y
 
 # install virtualbox
-sudo apt-get install virtualbox
+apt-get install virtualbox -y
 
 # install tcpdump
-sudo apt-get install tcpdump apparmor-utils
+apt-get install tcpdump apparmor-utils -y
 sudo aa-disable /usr/sbin/tcpdump
 
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
 
-sudo pip install m2crypto
+pip install m2crypto
 
 # add user "cuckoo"
 sudo adduser cuckoo
 sudo usermod -a -G vboxusers cuckoo
 
 # install cuckoo
-sudo pip install -U setuptools
-sudo pip install -U cuckoo
+pip install -U setuptools
+pip install -U cuckoo
 
 cuckoo --cwd cuckoo
 cuckoo community
