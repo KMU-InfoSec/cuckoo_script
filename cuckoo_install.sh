@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # install python libraries (cuckoo sandbox on Ubuntu/Debian-based distributions)
 sudo apt-get install python python-pip python-dev libffi-dev libssl-dev
 sudo apt-get install python-virtualenv python-setuptools
